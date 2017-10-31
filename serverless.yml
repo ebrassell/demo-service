@@ -62,6 +62,10 @@ provider:
 functions:
   hello:
     handler: src/hello/handler.hello
+    events:
+      - s3:
+        bucket: ${env:ENVIRONMENT}-eric-bucket
+        event: s3:ObjectCreated:*
 
   goodbye:
     handler: src/goodbye/handler.goodbye
